@@ -1,0 +1,21 @@
+# Modulo 4 - Sensori per l'Industria Agroalimentare
+
+## Obiettivo del modulo
+Conoscere le principali famiglie di sensori usate in ambito agroalimentare e capire come acquisire e interpretare i segnali.
+
+## Contenuti
+- Sensori di temperatura: applicazioni per fermentazione, cottura e stoccaggio
+- Sensori di umidita: applicazioni per lievitazione, stagionatura e conservazione
+- Sensori di distanza e presenza: rilevamento oggetti, conteggio, livello liquidi
+- Encoder: velocita nastri, conteggio giri, posizionamento
+- Sensori chimici: fermentazione, rilevamento perdite
+
+## Cosa saprai fare alla fine
+- Selezionare un sensore adatto a un processo specifico
+- Collegare sensori analogici e digitali a un microcontrollore
+- Valutare precisione, taratura e stabilita delle misure
+
+## Link utili
+- Arduino Language Reference (Analog/Digital I/O): https://docs.arduino.cc/language-reference/
+- Raspberry Pi GPIO Documentation: https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio
+- Arduino Programming (learning paths): https://docs.arduino.cc/learn/programming/
