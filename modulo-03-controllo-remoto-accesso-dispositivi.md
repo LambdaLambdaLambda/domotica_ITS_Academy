@@ -4,11 +4,11 @@
 Imparare a configurare accesso remoto sicuro, scegliere tra desktop remoto e SSH e gestire il trasferimento di file locali o in cloud.
 
 ## Contenuti
-- Installazione e configurazione TeamViewer
-- Accesso remoto sicuro ai dispositivi
-- Remote desktop vs SSH
-- Trasferimento file remoto
-- Trasferimento di file su cloud storage (Dropbox, Google Drive) da terminale e con API in Python
+- Installazione e configurazione TeamViewer: setup dell'accesso remoto e verifica della connessione.
+- Accesso remoto sicuro ai dispositivi: principi di autenticazione, permessi e sicurezza.
+- Remote desktop vs SSH: interfaccia grafica vs riga di comando, vantaggi e limiti.
+- Trasferimento file remoto: copie sicure e sincronizzazione tra dispositivi.
+- Trasferimento di file su cloud storage (Dropbox, Google Drive) da terminale e con API in Python: automazione di upload/download e gestione credenziali.
 
 ## Cosa saprai fare alla fine
 - Collegarti in modo sicuro a una macchina remota

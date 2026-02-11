@@ -4,13 +4,13 @@
 Imparare a configurare un Raspberry Pi come piattaforma edge per progetti di domotica e monitoraggio industriale.
 
 ## Contenuti
-- Sistema operativo Raspberry Pi OS
-- Accesso SSH e configurazione headless
-- GPIO e controllo hardware
-- Python per automazione
-- Scheduling con cron
-- Servizi systemd per avvio automatico
-- Installazione pacchetti e dipendenze
+- Sistema operativo Raspberry Pi OS: installazione, primo avvio e configurazioni base.
+- Accesso SSH e configurazione headless: gestione senza monitor con accesso remoto sicuro.
+- GPIO e controllo hardware: lettura ingressi e controllo uscite da Linux.
+- Python per automazione: script per acquisizione dati e controllo dispositivi.
+- Scheduling con cron: esecuzione periodica di task e manutenzioni.
+- Servizi systemd per avvio automatico: creare servizi per far partire applicazioni al boot.
+- Installazione pacchetti e dipendenze: gestione con APT e aggiornamenti.
 
 ## Cosa saprai fare alla fine
 - Preparare una SD card con Raspberry Pi OS e avviare il sistema

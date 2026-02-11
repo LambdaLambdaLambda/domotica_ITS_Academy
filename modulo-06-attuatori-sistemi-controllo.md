@@ -4,9 +4,9 @@
 Capire come pilotare attuatori comuni (ventole, LED, buzzer, valvole) e realizzare semplici strategie di controllo.
 
 ## Contenuti
-- Controllo PWM
-- Ventole e controllo velocita
-- LED di stato
+- Controllo PWM: generazione di segnali per modulare potenza e velocita.
+- Ventole e controllo velocita: driver, alimentazione e strategie di regolazione.
+- LED di stato: codifica di stati e allarmi con segnali visivi.
 
 ## Cosa saprai fare alla fine
 - Generare segnali PWM per pilotare attuatori
