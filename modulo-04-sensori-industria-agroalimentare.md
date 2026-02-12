@@ -4,9 +4,16 @@
 Conoscere le principali famiglie di sensori usate in ambito agroalimentare e capire come acquisire e interpretare i segnali.
 
 ## Contenuti
-- Sensori di temperatura: applicazioni per fermentazione, cottura e stoccaggio e come leggere il segnale.
-- Sensori di umidita: applicazioni per lievitazione, stagionatura e conservazione con soglie tipiche.
-- Sensori di distanza e presenza: rilevamento oggetti, conteggio e livello liquidi in linea.
+- Sensori di temperatura
+- Sensori di umidita
+- Sensori di distanza e presenza
+- Encoder
+- Sensori chimici
+
+## Spiegazioni dei contenuti
+- Sensori di temperatura: applicazioni per fermentazione, cottura e stoccaggio e lettura dei segnali.
+- Sensori di umidita: applicazioni per lievitazione, stagionatura e conservazione con soglie operative tipiche.
+- Sensori di distanza e presenza: rilevamento oggetti, conteggio e misura del livello liquidi in linea.
 - Encoder: misurare velocita nastri, conteggio giri e posizionamento relativo.
 - Sensori chimici: monitoraggio fermentazione e rilevamento perdite o contaminazioni.
 

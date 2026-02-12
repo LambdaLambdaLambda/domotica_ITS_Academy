@@ -4,7 +4,16 @@
 Imparare a usare Arduino IDE e a scrivere sketch robusti per gestire I/O, sensori e comunicazioni.
 
 ## Contenuti
-- Ambiente di sviluppo Arduino IDE: installazione, struttura del progetto e tool principali.
+- Ambiente di sviluppo Arduino IDE
+- Struttura sketch (setup, loop)
+- Gestione I/O digitali e analogici
+- Librerie per sensori comuni
+- Serial communication e debugging
+- Timer e interrupt
+- Comunicazione I2C e SPI
+
+## Spiegazioni dei contenuti
+- Ambiente di sviluppo Arduino IDE: installazione, struttura del progetto e strumenti principali.
 - Struttura sketch (setup, loop): ciclo di vita del programma e tempi di esecuzione.
 - Gestione I/O digitali e analogici: lettura sensori e pilotaggio attuatori.
 - Librerie per sensori comuni: ricerca, installazione e uso di librerie.
