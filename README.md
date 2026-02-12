@@ -33,6 +33,18 @@ Esempi di strumenti usati per accesso e supporto a distanza di computer o dispos
 - TeamViewer: software di accesso e supporto remoto per collegarsi a dispositivi da qualsiasi luogo.
 - Tailscale: servizio di accesso remoto che crea una rete privata sicura tra dispositivi, utile per collegarsi in modo semplice senza VPN tradizionali.
 
+## Materiali del corso
+- Modulo 1 - Fondamenti di Sistemi Embedded e IoT: [modulo-01-fondamenti-embedded-iot.md](modulo-01-fondamenti-embedded-iot.md)
+- Modulo 2 - Reti e Comunicazione: [modulo-02-reti-comunicazione.md](modulo-02-reti-comunicazione.md)
+- Modulo 3 - Controllo Remoto e Accesso ai Dispositivi: [modulo-03-controllo-remoto-accesso-dispositivi.md](modulo-03-controllo-remoto-accesso-dispositivi.md)
+- Modulo 4 - Sensori per l'Industria Agroalimentare: [modulo-04-sensori-industria-agroalimentare.md](modulo-04-sensori-industria-agroalimentare.md)
+- Modulo 6 - Attuatori e Sistemi di Controllo: [modulo-06-attuatori-sistemi-controllo.md](modulo-06-attuatori-sistemi-controllo.md)
+- Modulo 7 - Programmazione Arduino: [modulo-07-programmazione-arduino.md](modulo-07-programmazione-arduino.md)
+- Modulo 8 - Raspberry Pi e Linux Embedded: [modulo-08-raspberry-pi-linux-embedded.md](modulo-08-raspberry-pi-linux-embedded.md)
+- Tutorial progetti applicativi: [progetti-applicativi-tutorial.md](progetti-applicativi-tutorial.md)
+- Tutorial Tailscale + Flask su Jetson: [tutorial-tailscale-jetson-flask.md](tutorial-tailscale-jetson-flask.md)
+- Progetto integrato Arduino + Jetson: [progetto-integrato-arduino-jetson.md](progetto-integrato-arduino-jetson.md)
+
 ## Fonti
 Testo: https://www.arduino.cc/en/software/
 Servizi di connessione remota:
