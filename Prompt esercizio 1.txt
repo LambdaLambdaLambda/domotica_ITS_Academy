@@ -1,0 +1,12 @@
+I have an Arduino Uno board
+with attached: 
+* a TMP36 Temperature sensor
+* a RGB LED
+
+attached
+
+Write a C program to be loaded into the Arduino board that
+ does the following:
+* while the temperature read from the sensor is higher than 
+  30 degrees celsius, the led is on,
+  and the rest of the time the led is off
