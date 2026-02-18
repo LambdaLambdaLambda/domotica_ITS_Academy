@@ -44,6 +44,7 @@ Esempi di strumenti usati per accesso e supporto a distanza di computer o dispos
 - Tutorial progetti applicativi: [progetti-applicativi-tutorial.md](progetti-applicativi-tutorial.md)
 - Tutorial Tailscale + Flask su Jetson: [tutorial-tailscale-jetson-flask.md](tutorial-tailscale-jetson-flask.md)
 - Progetto integrato Arduino + Jetson: [progetto-integrato-arduino-jetson.md](progetto-integrato-arduino-jetson.md)
+- [Link assignment](https://classroom.github.com/classrooms/43234980-its-academy-agroalimentare-conegliano)
 
 ## Fonti
 Testo: https://www.arduino.cc/en/software/
