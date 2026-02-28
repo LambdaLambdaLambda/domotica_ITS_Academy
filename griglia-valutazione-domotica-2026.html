@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Griglia Valutazione Finale - Domotica 2026</title>
+  <style>
+    :root {
+      --bg: #f3f5f7;
+      --card: #ffffff;
+      --ink: #1d2430;
+      --muted: #5d6978;
+      --line: #d8dee6;
+      --brand: #0a6ebd;
+      --brand-2: #084f88;
+      --ok: #0b7a3b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #eaf1f7 0%, #f6f8fa 45%, #eef2f6 100%);
+      color: var(--ink);
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 14px 28px;
+    }
+
+    .header {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 3px 10px rgba(30, 46, 64, 0.08);
+    }
+
+    .title {
+      margin: 0 0 6px;
+      font-size: 1.45rem;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .meta-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .field {
+      background: #f9fbfc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .field input {
+      width: 100%;
+      border: 1px solid #c6ced8;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+
+    .panel {
+      margin-top: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 3px 10px rgba(30, 46, 64, 0.08);
+    }
+
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      vertical-align: middle;
+      text-align: left;
+      font-size: 0.93rem;
+    }
+
+    th {
+      background: #f1f6fb;
+      font-weight: 700;
+    }
+
+    .w-small { width: 90px; text-align: center; }
+    .w-medium { width: 130px; text-align: center; }
+    .w-rubric { width: 430px; }
+
+    .rubric-cell {
+      text-align: left;
+    }
+
+    .rubric-item {
+      margin-bottom: 4px;
+      font-size: 0.82rem;
+      color: #32485f;
+      line-height: 1.35;
+    }
+
+    .rubric-item:last-child { margin-bottom: 0; }
+
+    .score-input {
+      width: 80px;
+      text-align: right;
+      border: 1px solid #bcc7d5;
+      border-radius: 6px;
+      padding: 5px 7px;
+      font-size: 0.93rem;
+    }
+
+    .score-out {
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .tb-btn,
+    .action-btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 7px;
+      padding: 7px 11px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .tb-btn {
+      background: #dbeaf9;
+      color: #053e6c;
+    }
+
+    .tb-btn:hover { background: #cce2f6; }
+
+    .summary {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .summary-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fbfd;
+      padding: 10px;
+    }
+
+    .summary-label {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .summary-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brand-2);
+    }
+
+    .summary-value.ok {
+      color: var(--ok);
+    }
+
+    .written-wrap {
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .written-wrap input {
+      width: 90px;
+      border: 1px solid #bcc7d5;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .action-btn:hover { background: #075c9e; }
+
+    .action-btn.secondary {
+      background: #e4ecf6;
+      color: #123d67;
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .tb-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none;
+      z-index: 900;
+    }
+
+    .tb-overlay.show { display: block; }
+
+    .tb-box {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(900px, 94vw);
+      max-height: 88vh;
+      overflow: auto;
+      background: #fff;
+      border: 8px solid #2d3b4a;
+      border-radius: 8px;
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.35);
+      display: none;
+      z-index: 901;
+    }
+
+    .tb-box.show { display: block; }
+
+    .tb-head {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #f3f7fb;
+    }
+
+    .tb-title {
+      margin: 0;
+      font-size: 1.02rem;
+    }
+
+    .tb-close {
+      border: 0;
+      background: #d1dbe8;
+      color: #203041;
+      border-radius: 6px;
+      padding: 6px 9px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .tb-content {
+      padding: 12px;
+    }
+
+    .tb-rubric {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+    }
+
+    .tb-rubric th,
+    .tb-rubric td {
+      border: 1px solid var(--line);
+      padding: 7px;
+      font-size: 0.9rem;
+    }
+
+    .tb-rubric th { background: #eef4fb; }
+
+    .hidden-template { display: none; }
+
+    @media (max-width: 860px) {
+      .meta-grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+      .summary { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      th, td { font-size: 0.86rem; }
+      .score-input { width: 72px; }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .wrap {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+      .header,
+      .panel {
+        box-shadow: none;
+      }
+      .tb-btn,
+      .actions,
+      .note,
+      .tb-overlay,
+      .tb-box {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="header">
+      <h1 class="title">Griglia di Valutazione Finale - Domotica 2026</h1>
+      <p class="subtitle"><strong>ITS Academy Argoalimentare Veneto (Conegliano)</strong> - Formula finale: 50% Progetto + 50% Prova scritta.</p>
+
+      <div class="meta-grid">
+        <div class="field">
+          <label for="studente">Studente</label>
+          <input id="studente" type="text" placeholder="Nome e cognome">
+        </div>
+        <div class="field">
+          <label for="gruppo">Gruppo</label>
+          <input id="gruppo" type="text" placeholder="">
+        </div>
+        <div class="field">
+          <label for="docente">Docente</label>
+          <input id="docente" type="text" value="Alberto Carraro">
+        </div>
+        <div class="field">
+          <label for="data">Data</label>
+          <input id="data" type="date" value="2026-03-06">
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Parte 1 - Valutazione Progetto (max 50 punti)</h2>
+      <p>La griglia valorizza il lavoro di gruppo svolto durante le lezioni.</p>
+
+      <table aria-label="Griglia progetto">
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th class="w-small">Punti massimi</th>
+            <th class="w-medium">Punti assegnati</th>
+            <th class="w-rubric">Descrittori</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Impegno e continuita nel lavoro di gruppo in aula (partecipazione, presenza attiva, affidabilita)</td>
+            <td class="w-small">15</td>
+            <td class="w-medium"><input class="score-input project-score" id="c1" type="number" min="0" max="15" step="0.5" value="0" data-max="15"></td>
+            <td class="rubric-cell">
+              <div class="rubric-item"><strong>0-5:</strong> Partecipazione discontinua, scarso contributo operativo, necessita guida costante.</div>
+              <div class="rubric-item"><strong>5.5-10:</strong> Partecipazione abbastanza regolare, contributo parziale ma utile.</div>
+              <div class="rubric-item"><strong>10.5-13:</strong> Partecipazione attiva e affidabile, contributo concreto nelle attivita in aula.</div>
+              <div class="rubric-item"><strong>13.5-15:</strong> Presenza costante, iniziativa, supporto al gruppo e forte responsabilita personale.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Collaborazione nel team e supporto reciproco (comunicazione, condivisione, gestione conflitti)</td>
+            <td class="w-small">10</td>
+            <td class="w-medium"><input class="score-input project-score" id="c2" type="number" min="0" max="10" step="0.5" value="0" data-max="10"></td>
+            <td class="rubric-cell">
+              <div class="rubric-item"><strong>0-3:</strong> Comunicazione debole, coordinamento insufficiente.</div>
+              <div class="rubric-item"><strong>3.5-6:</strong> Collaborazione presente ma non sempre efficace.</div>
+              <div class="rubric-item"><strong>6.5-8.5:</strong> Buona cooperazione, condivisione informazioni e supporto reciproco.</div>
+              <div class="rubric-item"><strong>9-10:</strong> Teamwork maturo, comunicazione chiara e gestione autonoma delle criticita.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Organizzazione operativa durante il corso (rispetto ruoli, tempi, task condivisi, autonomia)</td>
+            <td class="w-small">5</td>
+            <td class="w-medium"><input class="score-input project-score" id="c3" type="number" min="0" max="5" step="0.5" value="0" data-max="5"></td>
+            <td class="rubric-cell">
+              <div class="rubric-item"><strong>0-1.5:</strong> Task poco pianificati, ritardi frequenti.</div>
+              <div class="rubric-item"><strong>2-3:</strong> Pianificazione base, rispetto parziale dei tempi.</div>
+              <div class="rubric-item"><strong>3.5-4.5:</strong> Buona organizzazione, ruoli chiari e avanzamento ordinato.</div>
+              <div class="rubric-item"><strong>5:</strong> Eccellente autonomia organizzativa e pieno rispetto di tempi/ruoli.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Integrazione tecnica Arduino + Jetson + sensore + collegamento seriale</td>
+            <td class="w-small">8</td>
+            <td class="w-medium"><input class="score-input project-score" id="c4" type="number" min="0" max="8" step="0.5" value="0" data-max="8"></td>
+            <td class="rubric-cell">
+              <div class="rubric-item"><strong>0-2:</strong> Integrazione incompleta o non funzionante.</div>
+              <div class="rubric-item"><strong>2.5-4.5:</strong> Integrazione parziale, funzionamento con errori rilevanti.</div>
+              <div class="rubric-item"><strong>5-6.5:</strong> Integrazione corretta nella maggior parte dei casi.</div>
+              <div class="rubric-item"><strong>7-8:</strong> Integrazione completa e stabile, seriale affidabile e dati coerenti.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Web server su Jetson e API HTTP (coerenza endpoint, gestione errori, visualizzazione dati)</td>
+            <td class="w-small">6</td>
+            <td class="w-medium"><input class="score-input project-score" id="c5" type="number" min="0" max="6" step="0.5" value="0" data-max="6" title="Punti per Web server e API HTTP"></td>
+            <td class="rubric-cell">
+              <div class="rubric-item"><strong>0-1.5:</strong> Endpoint incompleti o non funzionanti.</div>
+              <div class="rubric-item"><strong>2-3.5:</strong> Server attivo ma API limitata/fragile.</div>
+              <div class="rubric-item"><strong>4-5:</strong> API coerente, visualizzazione dati adeguata.</div>
+              <div class="rubric-item"><strong>5.5-6:</strong> Ottima coerenza HTTP, gestione errori e pagina chiara.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Test, debugging e stabilita del sistema (avvio servizi, gestione guasti, evidenze test)</td>
+            <td class="w-small">4</td>
+            <td class="w-medium"><input class="score-input project-score" id="c6" type="number" min="0" max="4" step="0.5" value="0" data-max="4"></td>
+            <td class="rubric-cell">
+              <div class="rubric-item"><strong>0-1:</strong> Test assenti o non documentati.</div>
+              <div class="rubric-item"><strong>1.5-2.5:</strong> Test minimi, analisi problemi superficiale.</div>
+              <div class="rubric-item"><strong>3-3.5:</strong> Buoni test funzionali e debug efficace.</div>
+              <div class="rubric-item"><strong>4:</strong> Piano test completo, gestione guasti robusta, evidenze chiare.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Documentazione e comunicazione finale (chiarezza, completezza, tracciabilita)</td>
+            <td class="w-small">2</td>
+            <td class="w-medium"><input class="score-input project-score" id="c7" type="number" min="0" max="2" step="0.5" value="0" data-max="2"></td>
+            <td class="rubric-cell">
+              <div class="rubric-item"><strong>0-0.5:</strong> Documentazione incompleta o confusa.</div>
+              <div class="rubric-item"><strong>1-1.5:</strong> Documentazione sufficiente ma migliorabile.</div>
+              <div class="rubric-item"><strong>2:</strong> Documentazione chiara, sintetica e ben tracciabile.</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="written-wrap">
+        <label for="writtenScore"><strong>Parte 2 - Prova scritta (max 50 punti):</strong></label>
+        <input id="writtenScore" type="number" min="0" max="50" step="0.5" value="0" aria-label="Punteggio prova scritta su 50">
+        <span class="subtitle">Inserire il punteggio gia normalizzato su 50.</span>
+      </div>
+
+      <div class="summary">
+        <div class="summary-box">
+          <div class="summary-label">Progetto (max 50)</div>
+          <div class="summary-value" id="projectTotal">0.0</div>
+        </div>
+        <div class="summary-box">
+          <div class="summary-label">Prova scritta (max 50)</div>
+          <div class="summary-value" id="writtenTotal">0.0</div>
+        </div>
+        <div class="summary-box">
+          <div class="summary-label">Finale su 100</div>
+          <div class="summary-value ok" id="finalTotal">0.0</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="action-btn secondary" onclick="window.print()">Stampa / PDF</button>
+      </div>
+
+      <p class="note"><strong>Formula:</strong> Voto finale = Punteggio progetto (0-50) + Punteggio prova scritta (0-50). Valutazione progetto con peso esplicito su impegno e collaborazione in classe.</p>
+    </section>
+  </div>
+
+  <div class="tb-overlay" id="tbOverlay" aria-hidden="true"></div>
+  <div class="tb-box" id="tbBox" role="dialog" aria-modal="true" aria-labelledby="tbTitle">
+    <div class="tb-head">
+      <h3 class="tb-title" id="tbTitle">Rubrica criterio</h3>
+      <button type="button" class="tb-close" id="tbClose">Chiudi</button>
+    </div>
+    <div class="tb-content" id="tbBody"></div>
+  </div>
+
+  <div class="hidden-template" id="tb-c1" data-title="Impegno e continuita nel lavoro di gruppo (0-15)">
+    <table class="tb-rubric">
+      <thead><tr><th>Fascia</th><th>Descrittore sintetico</th></tr></thead>
+      <tbody>
+        <tr><td>0-5</td><td>Partecipazione discontinua, scarso contributo operativo, necessita guida costante.</td></tr>
+        <tr><td>5.5-10</td><td>Partecipazione abbastanza regolare, contributo parziale ma utile.</td></tr>
+        <tr><td>10.5-13</td><td>Partecipazione attiva e affidabile, contributo concreto nelle attivita in aula.</td></tr>
+        <tr><td>13.5-15</td><td>Presenza costante, iniziativa, supporto al gruppo e forte responsabilita personale.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hidden-template" id="tb-c2" data-title="Collaborazione nel team (0-10)">
+    <table class="tb-rubric">
+      <thead><tr><th>Fascia</th><th>Descrittore sintetico</th></tr></thead>
+      <tbody>
+        <tr><td>0-3</td><td>Comunicazione debole, coordinamento insufficiente.</td></tr>
+        <tr><td>3.5-6</td><td>Collaborazione presente ma non sempre efficace.</td></tr>
+        <tr><td>6.5-8.5</td><td>Buona cooperazione, condivisione informazioni e supporto reciproco.</td></tr>
+        <tr><td>9-10</td><td>Teamwork maturo, comunicazione chiara e gestione autonoma delle criticit&agrave;.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hidden-template" id="tb-c3" data-title="Organizzazione operativa (0-5)">
+    <table class="tb-rubric">
+      <thead><tr><th>Fascia</th><th>Descrittore sintetico</th></tr></thead>
+      <tbody>
+        <tr><td>0-1.5</td><td>Task poco pianificati.</td></tr>
+        <tr><td>2-3</td><td>Pianificazione base, rispetto parziale dei tempi.</td></tr>
+        <tr><td>3.5-4.5</td><td>Buona organizzazione, ruoli chiari e avanzamento ordinato.</td></tr>
+        <tr><td>5</td><td>Eccellente autonomia organizzativa e pieno rispetto di tempi/ruoli.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hidden-template" id="tb-c4" data-title="Integrazione tecnica Arduino-Jetson-sensore (0-8)">
+    <table class="tb-rubric">
+      <thead><tr><th>Fascia</th><th>Descrittore sintetico</th></tr></thead>
+      <tbody>
+        <tr><td>0-2</td><td>Integrazione incompleta o non funzionante.</td></tr>
+        <tr><td>2.5-4.5</td><td>Integrazione parziale, funzionamento con errori rilevanti.</td></tr>
+        <tr><td>5-6.5</td><td>Integrazione corretta nella maggior parte dei casi.</td></tr>
+        <tr><td>7-8</td><td>Integrazione completa e stabile, seriale affidabile e dati coerenti.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hidden-template" id="tb-c5" data-title="Web server e API HTTP (0-6)">
+    <table class="tb-rubric">
+      <thead><tr><th>Fascia</th><th>Descrittore sintetico</th></tr></thead>
+      <tbody>
+        <tr><td>0-1.5</td><td>Endpoint incompleti o non funzionanti.</td></tr>
+        <tr><td>2-3.5</td><td>Server attivo ma API limitata/fragile.</td></tr>
+        <tr><td>4-5</td><td>API coerente, visualizzazione dati adeguata.</td></tr>
+        <tr><td>5.5-6</td><td>Ottima coerenza HTTP, gestione errori e pagina chiara.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hidden-template" id="tb-c6" data-title="Test e debugging (0-4)">
+    <table class="tb-rubric">
+      <thead><tr><th>Fascia</th><th>Descrittore sintetico</th></tr></thead>
+      <tbody>
+        <tr><td>0-1</td><td>Test assenti o non documentati.</td></tr>
+        <tr><td>1.5-2.5</td><td>Test minimi, analisi problemi superficiale.</td></tr>
+        <tr><td>3-3.5</td><td>Buoni test funzionali e debug efficace.</td></tr>
+        <tr><td>4</td><td>Piano test completo, gestione guasti robusta, evidenze chiare.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hidden-template" id="tb-c7" data-title="Documentazione e comunicazione finale (0-2)">
+    <table class="tb-rubric">
+      <thead><tr><th>Fascia</th><th>Descrittore sintetico</th></tr></thead>
+      <tbody>
+        <tr><td>0-0.5</td><td>Documentazione incompleta o confusa.</td></tr>
+        <tr><td>1-1.5</td><td>Documentazione sufficiente ma migliorabile.</td></tr>
+        <tr><td>2</td><td>Documentazione chiara, sintetica e ben tracciabile.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    (function () {
+      var projectInputs = Array.prototype.slice.call(document.querySelectorAll('.project-score'));
+      var writtenInput = document.getElementById('writtenScore');
+      var projectTotalEl = document.getElementById('projectTotal');
+      var writtenTotalEl = document.getElementById('writtenTotal');
+      var finalTotalEl = document.getElementById('finalTotal');
+      var final30El = document.getElementById('final30');
+      var resetBtn = document.getElementById('resetBtn');
+
+      function clamp(value, min, max) {
+        if (isNaN(value)) return min;
+        return Math.min(max, Math.max(min, value));
+      }
+
+      function round1(value) {
+        return Math.round(value * 10) / 10;
+      }
+
+      function calculate() {
+        var project = 0;
+
+        projectInputs.forEach(function (input) {
+          var max = Number(input.getAttribute('data-max'));
+          var value = clamp(parseFloat(input.value), 0, max);
+          project += value;
+        });
+
+        var written = clamp(parseFloat(writtenInput.value), 0, 50);
+        var final100 = project + written;
+        var final30 = final100 * 30 / 100;
+
+        projectTotalEl.textContent = round1(project).toFixed(1);
+        writtenTotalEl.textContent = round1(written).toFixed(1);
+        finalTotalEl.textContent = round1(final100).toFixed(1);
+        final30El.textContent = round1(final30).toFixed(1);
+      }
+
+      function normalizeOnBlur(event) {
+        var input = event.target;
+        var max = Number(input.getAttribute('data-max'));
+        if (input.id === 'writtenScore') max = 50;
+        var value = clamp(parseFloat(input.value), 0, max);
+        input.value = round1(value).toFixed(1);
+        calculate();
+      }
+
+      projectInputs.forEach(function (input) {
+        input.addEventListener('input', calculate);
+        input.addEventListener('blur', normalizeOnBlur);
+      });
+
+      writtenInput.addEventListener('input', calculate);
+      writtenInput.addEventListener('blur', normalizeOnBlur);
+
+      resetBtn.addEventListener('click', function () {
+        projectInputs.forEach(function (input) {
+          input.value = '0.0';
+        });
+        writtenInput.value = '0.0';
+        calculate();
+      });
+
+      var overlay = document.getElementById('tbOverlay');
+      var box = document.getElementById('tbBox');
+      var body = document.getElementById('tbBody');
+      var title = document.getElementById('tbTitle');
+      var closeBtn = document.getElementById('tbClose');
+
+      function openThickbox(targetId) {
+        var template = document.getElementById(targetId);
+        if (!template) return;
+        title.textContent = template.getAttribute('data-title') || 'Rubrica criterio';
+        body.innerHTML = template.innerHTML;
+        overlay.classList.add('show');
+        box.classList.add('show');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeThickbox() {
+        overlay.classList.remove('show');
+        box.classList.remove('show');
+        overlay.setAttribute('aria-hidden', 'true');
+        body.innerHTML = '';
+      }
+
+      Array.prototype.slice.call(document.querySelectorAll('.thickbox-trigger')).forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openThickbox(btn.getAttribute('data-target'));
+        });
+      });
+
+      closeBtn.addEventListener('click', closeThickbox);
+      overlay.addEventListener('click', closeThickbox);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeThickbox();
+      });
+
+      calculate();
+    })();
+  </script>
+</body>
+</html>
