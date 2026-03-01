@@ -1,4 +1,4 @@
-# Modulo 4 - Sensori per l'Industria Agroalimentare
+
 
 ## Obiettivo del modulo
 Conoscere le principali famiglie di sensori usate in ambito agroalimentare e capire come acquisire e interpretare i segnali.
