@@ -54,5 +54,9 @@ dkms.conf
 # debug information files
 *.dwo
 
-# Local course grouping
+# Specific files
 Gruppi.txt
+Lezione del 3 marzo 2026.txt
+Prompt esercizio 1.txt
+Corso domotica ITS Academy Alberto Carraro.pdf
+
