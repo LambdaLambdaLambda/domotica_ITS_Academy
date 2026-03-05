@@ -45,9 +45,7 @@
 
 - Installazione e configurazione [TeamViewer](https://www.teamviewer.com/en-us/products/teamviewer/): setup dell'accesso remoto, pairing del dispositivo e verifica della connessione.
 - Accesso remoto sicuro ai dispositivi: autenticazione, permessi e buone pratiche di sicurezza.
-- Remote desktop vs [SSH](https://www.openssh.com/manual.html): interfaccia grafica vs riga di comando, vantaggi e limiti in base al caso d'uso.
-- Trasferimento file remoto: copie sicure e sincronizzazione tra dispositivi con strumenti dedicati, (es. [Google Drive](https://developers.google.com/drive/api/guides/about-sdk))
-- [Tailscale + Flask su NVIDIA Jetson](tutorial-tailscale-jetson-flask.md)
+- Remote desktop: interfaccia grafica vs riga di comando, vantaggi e limiti in base al caso d'uso.
 
 ## Programmazione Arduino
 
